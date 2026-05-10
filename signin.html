@@ -24,35 +24,24 @@
                 </div>
                 <h1>Sign In</h1>
 
-                <form class="flex-c">
-                    <div class="input-box">
-                        <span class="label">username</span>
-                        <div class=" flex-r input">
-                            <input type="text" placeholder="Masukkan nama">
-                            <i class="fas fa-at"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="input-box">
-                        <span class="label">password</span>
-                        <div class="flex-r input">
-                            <input type="password" placeholder="Masukkan password">
-                            <i class="fas fa-lock"></i>
-                        </div>
+                <form action="../index.html" method="POST">
+                    <h2>Sign In</h2>
+    
+                    <div class="input-group">
+                       <input type="text" name="username" required>
+                        <label>Username</label>
+                   </div>
+
+                    <div class="input-group">
+                        <input type="password" name="password" required>
+                        <label>Password</label>
                     </div>
 
-                    <div class="check">
-                        <input type="checkbox" name="" id="">
-                        <span>Ingat saya</span>
-                    </div>
+                        <button type="submit" class="btn">Login</button>
 
-                    <button class="btn" type="submit">Masuk</button>
-                    
-                    <span class="extra-line">
-                        <span>Belum punya akun?</span>
-                        <a href="../index.html">Sign Up</a>
-                    </span>
-                    
+                    <div class="sign-link">
+                      <p>Belum punya akun? <a href="login/index.html" class="register-link">Sign Up</a></p>
+                    </div>
                 </form>
 
             </div>
