@@ -511,3 +511,28 @@ hr { width: 65%; }
 	transform: translateX(-50%);
 	z-index: 999;
 }
+
+/* LOGIN BUTTON */
+#authArea{
+    position: fixed;
+    top: 25px;
+    right: 40px;
+    z-index: 9999;
+}
+
+.nav-cta{
+    background: red;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-cta:hover{
+    background: darkred;
+    transform: translateY(-2px);
+}
