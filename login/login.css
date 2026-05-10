@@ -22,24 +22,11 @@
 }
 
 .container{
-    position: fixed;
-    top: 90px;
-    right: 40px;
-    z-index: 9999;
-
-    width: 420px;
-    padding: 20px;
-
-    background: rgba(20,20,20,0.95);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px;
-
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 40px rgba(0,0,0,0.45);
-
-    min-height: auto;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 10px;
+    background: #E5E5E5;  
 }
-
 
 
 .login-text{
