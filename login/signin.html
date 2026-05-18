@@ -1,103 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
+<form class="flex-c" id="registerForm">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- USERNAME -->
+    <div class="input-box">
+        <span class="label">Username</span>
 
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="../font-awesome-4.5.0/css/font-awesome.css">
+        <div class="flex-r input">
+            <input
+                type="text"
+                placeholder="Masukkan username"
+                id="username"
+                required
+            >
 
-    <title>Sign Up</title>
-</head>
-
-<body>
-
-    <div class="main-container">
-
-        <div class="form-container">
-
-            <div class="flex-r login-wrapper">
-
-                <div class="login-text">
-
-                    <div class="logo">
-                        <span>GarasiJohnz</span>
-                    </div>
-
-                    <h1>Sign Up</h1>
-
-                    <form class="flex-c" id="registerForm">
-
-                        <!-- USERNAME -->
-                        <div class="input-box">
-                            <span class="label">username</span>
-
-                            <div class="flex-r input">
-                                <input
-                                    type="text"
-                                    placeholder="username"
-                                    id="username"
-                                    required
-                                >
-
-                                <i class="fa fa-user"></i>
-                            </div>
-                        </div>
-
-                        <!-- EMAIL -->
-                        <div class="input-box">
-                            <span class="label">email</span>
-
-                            <div class="flex-r input">
-                                <input
-                                    type="email"
-                                    placeholder="email@gmail.com"
-                                    id="email"
-                                    required
-                                >
-
-                                <i class="fa fa-envelope"></i>
-                            </div>
-                        </div>
-
-                        <!-- PASSWORD -->
-                        <div class="input-box">
-                            <span class="label">password</span>
-
-                            <div class="flex-r input">
-                                <input
-                                    type="password"
-                                    placeholder="password"
-                                    id="password"
-                                    required
-                                >
-
-                                <i class="fa fa-lock"></i>
-                            </div>
-                        </div>
-
-                        <button class="btn" type="submit">
-                            Buat Akun
-                        </button>
-
-                        <span class="extra-line">
-                            Sudah punya akun?
-                            <a href="index.html">Login</a>
-                        </span>
-
-                    </form>
-
-                </div>
-
-            </div>
-
+            <i class="fas fa-user"></i>
         </div>
-
     </div>
 
-    <script src="js/register.js"></script>
+    <!-- EMAIL -->
+    <div class="input-box">
+        <span class="label">Email</span>
 
-</body>
+        <div class="flex-r input">
+            <input
+                type="email"
+                placeholder="Masukkan email"
+                id="email"
+                required
+            >
 
-</html>
+            <i class="fas fa-envelope"></i>
+        </div>
+    </div>
+
+    <!-- PASSWORD -->
+    <div class="input-box">
+        <span class="label">Password</span>
+
+        <div class="flex-r input">
+            <input
+                type="password"
+                placeholder="Masukkan password"
+                id="password"
+                required
+            >
+
+            <i class="fas fa-lock"></i>
+        </div>
+    </div>
+
+    <button class="btn" type="submit">
+        Buat Akun
+    </button>
+
+</form>
