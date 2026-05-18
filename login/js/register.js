@@ -19,7 +19,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
         if (data.status === "success") {
 
             alert("Registrasi berhasil!");
-            window.location.href = "signin.html";
+            window.location.href = "index.html";
 
         } else {
 
