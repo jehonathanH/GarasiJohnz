@@ -1,41 +1,83 @@
-document.getElementById("loginForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
 
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
+    const loginForm = document.getElementById("loginForm");
+    const alertBox = document.getElementById("alertbox");
 
-    try {
-        const res = await fetch("https://domainkamu.com/api/auth.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body:
-                `action=login&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-        });
+    loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
 
-        const data = await res.json();
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
 
-        if (data.status === "success") {
-
-            localStorage.setItem("isLogin", "true");
-            localStorage.setItem("username", data.username);
-
-            window.location.href = "../index.html";
-
-        } else {
-
-            const alertBox = document.getElementById("alertbox");
-            alertBox.innerText = "Username atau password salah!";
-            alertBox.style.display = "block";
-
-            setTimeout(() => {
-                alertBox.style.display = "none";
-            }, 3000);
+        // validasi input
+        if (!username || !password) {
+            showAlert("Username dan password wajib diisi!");
+            return;
         }
 
-    } catch (err) {
-        console.error(err);
-        alert("Server error");
+        try {
+
+            // request ke API seperti Vcame
+            const response = await fetch(
+                "https://herisusanta.my.id/javalogin/api/auth.php",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":
+                            "application/x-www-form-urlencoded",
+                    },
+                    body:
+                        `action=login&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+                }
+            );
+
+            const data = await response.json();
+
+            console.log(data);
+
+            // login berhasil
+            if (data.status === "success") {
+
+                // simpan status login
+                localStorage.setItem("isLogin", "true");
+                localStorage.setItem("username", username);
+
+                // redirect
+                window.location.href = "../index.html";
+
+            } else {
+
+                // login gagal
+                showAlert(
+                    data.message ||
+                    "Username atau password salah!"
+                );
+            }
+
+        } catch (error) {
+
+            console.error(error);
+
+            showAlert(
+                "Tidak dapat terhubung ke server!"
+            );
+        }
+    });
+
+    // fungsi alert
+    function showAlert(message) {
+
+        if (!alertBox) {
+            alert(message);
+            return;
+        }
+
+        alertBox.innerText = message;
+        alertBox.style.display = "block";
+
+        setTimeout(() => {
+            alertBox.style.display = "none";
+        }, 3000);
     }
+
 });
