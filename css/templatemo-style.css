@@ -536,3 +536,13 @@ hr { width: 65%; }
     background: darkred;
     transform: translateY(-2px);
 }
+.auth-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+#welcomeUser{
+    color:white;
+    font-size:16px;
+}
