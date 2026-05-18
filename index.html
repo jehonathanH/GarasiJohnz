@@ -192,20 +192,53 @@
         });
     </script> 
     <script>
+
+const authBtn = document.getElementById("authBtn");
+const welcomeUser = document.getElementById("welcomeUser");
+
 // CEK STATUS LOGIN
+if(localStorage.getItem("isLogin") === "true"){
 
-// TAMPILKAN USERNAME
-const username = localStorage.getItem("username");
-if(username){
-    document.getElementById("welcomeUser").innerText = "Welcome, " + username;
+    const username = localStorage.getItem("username");
+
+    // TAMPILKAN USERNAME
+    welcomeUser.innerText = "Welcome, " + username;
+
+    // UBAH TOMBOL
+    authBtn.innerText = "Logout";
+
+} else {
+
+    welcomeUser.innerText = "";
+
+    authBtn.innerText = "Login";
+
 }
 
-// LOGOUT
-function logout(){
-    localStorage.removeItem("isLogin");
-    localStorage.removeItem("username");
-    window.location.href = "login/signin.html";
+// FUNGSI LOGIN / LOGOUT
+function handleAuth(){
+
+    // JIKA SUDAH LOGIN
+    if(localStorage.getItem("isLogin") === "true"){
+
+        localStorage.removeItem("isLogin");
+        localStorage.removeItem("username");
+
+        alert("Logout berhasil");
+
+        window.location.reload();
+
+    }
+
+    // JIKA BELUM LOGIN
+    else {
+
+        window.location.href = "login/signin.html";
+
+    }
+
 }
+
 </script>
 </body>
 </html>
