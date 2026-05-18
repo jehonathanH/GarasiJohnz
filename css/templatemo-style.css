@@ -84,7 +84,7 @@ a:focus {
     background-color: red;
     padding: 0.75rem 2.5rem;
     border-radius: 0.5rem;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .tm-btn-white-big:hover,
@@ -534,7 +534,7 @@ hr { width: 65%; }
 
 #authBtn{
     background: transparent;
-    color: white;
+    color: red;
 
     border: 2px solid red;
 
