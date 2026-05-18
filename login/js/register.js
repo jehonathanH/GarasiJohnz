@@ -6,15 +6,14 @@ document.getElementById("registerForm").addEventListener("submit", async functio
 
     try {
 
-        const res = await fetch("https://herisusanta.my.id/javalogin/api/auth.php"), {
+        const res = await fetch("https://herisusanta.my.id/javalogin/api/auth.php", {
             method: "POST",
             headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body:
-                `action=register&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+        "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body:
+        `action=register&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
         });
-
         const data = await res.json();
 
         if (data.status === "success") {
