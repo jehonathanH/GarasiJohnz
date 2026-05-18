@@ -1,28 +1,35 @@
-// REGISTER SCRIPT (signup.html)
-
-document.getElementById("registerForm").addEventListener("submit", function(e) {
+document.getElementById("registerForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
     const username = document.getElementById("username").value.trim();
     const password = document.getElementById("password").value.trim();
 
-    // Ambil user lama
-    let users = JSON.parse(localStorage.getItem("users")) || [];
+    try {
 
-    // Cek apakah username sudah dipakai
-    const userExist = users.find(user => user.username === username);
+        const res = await fetch("https://domainkamu.com/api/auth.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body:
+                `action=register&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+        });
 
-    if (userExist) {
-        alert("Username sudah digunakan!");
-        return;
+        const data = await res.json();
+
+        if (data.status === "success") {
+
+            alert("Registrasi berhasil!");
+            window.location.href = "signin.html";
+
+        } else {
+
+            alert(data.message || "Registrasi gagal");
+
+        }
+
+    } catch (err) {
+        console.error(err);
+        alert("Server error");
     }
-
-    // Simpan user baru
-    const newUser = { username, password };
-    users.push(newUser);
-
-    localStorage.setItem("users", JSON.stringify(users));
-
-    alert("Registrasi berhasil! Silakan login.");
-    window.location.href = "signin.html";
 });
