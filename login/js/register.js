@@ -6,7 +6,7 @@ document.getElementById("registerForm").addEventListener("submit", async functio
 
     try {
 
-        const res = await fetch("https://domainkamu.com/api/auth.php", {
+        const res = await fetch("https://herisusanta.my.id/javalogin/api/auth.php"), {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
