@@ -74,7 +74,20 @@
                         Versi eksklusif dari P1 dengan bodi serat karbon murni tanpa cat. 
                         Dibuat oleh McLaren Special Operations untuk performa yang lebih ringan, kuat, dan agresif.
                     </p>
-                    <a href="#" class="tm-bordered-btn">Baca Selengkapnya</a>
+                    
+<a href="#" class="tm-bordered-btn" onclick="tampilkanVideo()">
+  Baca Selengkapnya
+</a>
+
+<!-- VIDEO -->
+<div id="video" style="display: none; margin-top: 20px;">
+  <iframe width="700"
+          height="400"
+          src="https://www.youtube.com/embed/Bo00z49wK9A"
+          frameborder="0"
+          allowfullscreen>
+  </iframe>
+</div>
                 </div>
             </section>
         </div>
@@ -241,5 +254,19 @@ function handleAuth(){
 }
 
 </script>
+
+<script>
+function tampilkanVideo() {
+    var video = document.getElementById("video");
+
+    if (video.style.display === "none") {
+        video.style.display = "block";
+    } else {
+        video.style.display = "none";
+    }
+}
+</script>
+
+    
 </body>
 </html>
